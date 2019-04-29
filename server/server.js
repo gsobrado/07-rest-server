@@ -1,36 +1,19 @@
 require('./config/config.js');
+const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 
+const bodyParser = require('body-parser');
 // parseador application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended:false}));
 //parse aplicatio/json
 app.use(bodyParser.json());
 
-app.get('/usuario', (req, res) => {
-    res.json('get Usuario');
-});
+app.use(require('./routes/usuario'));
 
-app.post('/usuario', (req, res) => {
-    let body = req.body;
-    if(body.nombre === undefined){
-        res.status(400).json({
-            ok: false,
-            mensaje: "el nombre es necesario"
-        })
-    }else{
-        res.json({nuevoUser: body});
-    }
-});
-
-app.put('/usuario/:id', (req, res) => {
-    let id = req.params.id;
-    res.json({'put Usuario': id});
-});
-
-app.delete('/usuario', (req, res) => {
-    res.json('delete Usuario');
+mongoose.connect('mongodb://localhost:27017/cafe', {useNewUrlParser: true}, (err) =>  {
+    if(err) throw new Error('Error', err);
+    console.log('Base de daton ONLINE');
 });
 
 app.listen(process.env.PORT, () => console.log('Escuchando el puerto: ', process.env.PORT));
