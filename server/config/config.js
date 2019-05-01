@@ -22,3 +22,15 @@ if (process.env.NODE_ENV === 'DEV') {
 }
 
 process.env.urlDB = urlDB;
+
+// ===========================================
+//  Configuracion del Vencimiento token
+// ===========================================
+
+process.env.VENCIMIENTO_TOKEN = 60 * 60 * 24 * 30;
+
+// ===========================================
+//  Configuracion del Seed Token
+// ===========================================
+
+process.env.SEED_TOKEN = process.env.SEED || 'este-es-el-seed-desarrollo';
