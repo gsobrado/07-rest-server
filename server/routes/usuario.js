@@ -64,7 +64,6 @@ app.post('/usuario', [verificarToken, verificarRole], (req, res) => {
 });
 
 app.put('/usuario/:id', [verificarToken, verificarRole], (req, res) => {
-    let id = req.params.id;
     let body = _.pick(req.body, ['nombre', 'apellido', 'edad', 'email', 'img', 'role', 'estado']);
 
     Usuario.findByIdAndUpdate(id, body, { new: true, runValidators: true }, (err, usuarioDB) => {
