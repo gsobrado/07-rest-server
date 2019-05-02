@@ -34,3 +34,9 @@ process.env.VENCIMIENTO_TOKEN = 60 * 60 * 24 * 30;
 // ===========================================
 
 process.env.SEED_TOKEN = process.env.SEED || 'este-es-el-seed-desarrollo';
+
+// ===========================================
+//  Configuracion del Seed Token
+// ===========================================
+
+process.env.GOOGLE_CLIENT = process.env.GOOGLE_CLIENT || '684818114245-9sc4mu6s1vne6v6jjuea9sd930lrhfus.apps.googleusercontent.com'

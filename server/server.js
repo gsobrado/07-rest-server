@@ -2,12 +2,17 @@ require('./config/config.js');
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
+const path = require('path');
 
 const bodyParser = require('body-parser');
 // parseador application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 //parse aplicatio/json
 app.use(bodyParser.json());
+
+//Habilitar Capeta Public
+app.use(express.static(path.resolve(__dirname, '../public')));
+
 // Cnfiguracion global de routes
 app.use(require('./routes/index'));
 
