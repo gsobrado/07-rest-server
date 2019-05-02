@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const _ = require('underscore');
 const app = express();
 const Usuario = require('../models/usuario.js');
-const { verificarToken, verificarRole } = require('../middlewares/autenticacion')
+const { verificarToken, verificarRole } = require('../middlewares/autenticacion');
 
 app.get('/usuario', verificarToken, (req, res) => {
 
